@@ -1,0 +1,24 @@
+Complexidades Assintóticas de Tempo e Espaço
+
+1. Pilha 
+      Complexidade de Espaço: O(n) : Para n elementos inseridos, são alocados exatamente n objetos Node na memória.
+      Complexidade de Tempo:
+          push(): O(1) : Apenas cria um novo nó e atualiza o ponteiro topo, independentemente do tamanho da pilha.
+          pop(): O(1) : Apenas lê o valor de topo e aponta topo para o próximo elemento, sem percorrer a estrutura.
+          
+2. Fila FIFO
+      Complexidade de Espaço: O(n) : Armazena n nós dinamicamente conforme os elementos entram na fila.
+      Complexidade de Tempo:
+          enqueue(): O(1) : Como mantemos uma referência direta para o ponteiro fim (rear), não precisamos percorrer a fila para inserir no final.
+          dequeue(): O(1) : Apenas deslocamos o ponteiro inicio (front) para o próximo nó.
+          rear(): O(1) : Acesso direto ao atributo fim.valor.
+          front(): O(1) : Acesso direto ao atributo inicio.valor.
+          
+3. Lista Encadeada
+      Complexidade de Espaço: O(n) : Cada elemento ocupa um nó na memória.
+      Complexidade de Tempo (no pior caso):
+          push(): O(n) : Como a lista possui apenas o ponteiro head (início), é necessário percorrer todos os n elementos até encontrar o último nó (atual.next == null). (Obs.: Seria O(1) se houvesse um ponteiro tail).
+          pop(): O(n) : É necessário percorrer a lista até o penúltimo nó (atual.next.next == null) para remover o último e atualizar a referência para null.
+          insert(index, node): O(n) : No pior caso (inserção no fim ou próximo ao fim), o laço percorre até n posições. No melhor caso (index == 0), é O(1).
+          remove(index): O(n) : No pior caso (remoção do último elemento), percorre n - 1 nós para ajustar os ponteiros.
+          elementAt(index): O(n) : Listas encadeadas não possuem acesso aleatório por índice como arrays; para chegar ao índice n - 1, é preciso caminhar nó a nó desde head.
